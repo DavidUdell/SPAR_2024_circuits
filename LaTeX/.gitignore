@@ -1,0 +1,4 @@
+# Ignore texworks aux files
+*.aux
+*.log
+*.out
