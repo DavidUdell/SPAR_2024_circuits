@@ -1,0 +1,172 @@
+@article{white2016sampling,
+  title={Sampling Generative Networks},
+  author={White, Tom},
+  journal={arXiv preprint arXiv:1609.04468},
+  year={2016}
+}
+@inproceedings{subramani-etal-2022-extracting,
+    title = "Extracting Latent Steering Vectors from Pretrained Language Models",
+    author = "Subramani, Nishant  and
+      Suresh, Nivedita  and
+      Peters, Matthew",
+    booktitle = "Findings of the Association for Computational Linguistics: ACL 2022",
+    month = may,
+    year = "2022",
+    address = "",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2022.findings-acl.48",
+    doi = "10.18653/v1/2022.findings-acl.48",
+    pages = "566--581",
+    abstract = "Prior work on controllable text generation has focused on learning how to control language models through trainable decoding, smart-prompt design, or fine-tuning based on a desired objective. We hypothesize that the information needed to steer the model to generate a target sentence is already encoded within the model. Accordingly, we explore a different approach altogether: extracting latent vectors directly from pretrained language model decoders without fine-tuning. Experiments show that there exist steering vectors, which, when added to the hidden states of the language model, generate a target sentence nearly perfectly ({\textgreater} 99 BLEU) for English sentences from a variety of domains. We show that vector arithmetic can be used for unsupervised sentiment transfer on the Yelp sentiment benchmark, with performance comparable to models tailored to this task. We find that distances between steering vectors reflect sentence similarity when evaluated on a textual similarity benchmark (STS-B), outperforming pooled hidden states of models. Finally, we present an analysis of the intrinsic properties of the steering vectors. Taken together, our results suggest that frozen LMs can be effectively controlled through their latent steering space.",
+}
+@misc{hernandez2023inspecting,
+      title={Inspecting and Editing Knowledge Representations in Language Models}, 
+      author={Evan Hernandez and Belinda Z. Li and Jacob Andreas},
+      year={2023},
+      eprint={2304.00740},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
+}
+@inproceedings{
+li2023emergent,
+title={Emergent World Representations: Exploring a Sequence Model Trained on a Synthetic Task},
+author={Kenneth Li and Aspen K Hopkins and David Bau and Fernanda Vi{\'e}gas and Hanspeter Pfister and Martin Wattenberg},
+booktitle={The Eleventh International Conference on Learning Representations },
+year={2023},
+url={https://openreview.net/forum?id=DeG07_TcZvT}
+}
+@inproceedings{
+ilharco2023editing,
+title={Editing models with task arithmetic},
+author={Gabriel Ilharco and Marco Tulio Ribeiro and Mitchell Wortsman and Ludwig Schmidt and Hannaneh Hajishirzi and Ali Farhadi},
+booktitle={The Eleventh International Conference on Learning Representations },
+year={2023},
+url={https://openreview.net/forum?id=6t0Kwf8-jrj}
+}
+@inproceedings{
+Dathathri2020Plug,
+title={Plug and Play Language Models: A Simple Approach to Controlled Text Generation},
+author={Sumanth Dathathri and Andrea Madotto and Janice Lan and Jane Hung and Eric Frank and Piero Molino and Jason Yosinski and Rosanne Liu},
+booktitle={International Conference on Learning Representations},
+year={2020},
+url={https://openreview.net/forum?id=H1edEyBKDS}
+}
+@inproceedings{lester-etal-2021-power,
+    title = "The Power of Scale for Parameter-Efficient Prompt Tuning",
+    author = "Lester, Brian  and
+      Al-Rfou, Rami  and
+      Constant, Noah",
+    booktitle = "Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing",
+    month = nov,
+    year = "2021",
+    address = "",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2021.emnlp-main.243",
+    doi = "10.18653/v1/2021.emnlp-main.243",
+    pages = "3045--3059",
+    abstract = "In this work, we explore {``}prompt tuning,{''} a simple yet effective mechanism for learning {``}soft prompts{''} to condition frozen language models to perform specific downstream tasks. Unlike the discrete text prompts used by GPT-3, soft prompts are learned through backpropagation and can be tuned to incorporate signals from any number of labeled examples. Our end-to-end learned approach outperforms GPT-3{'}s few-shot learning by a large margin. More remarkably, through ablations on model size using T5, we show that prompt tuning becomes more competitive with scale: as models exceed billions of parameters, our method {``}closes the gap{''} and matches the strong performance of model tuning (where all model weights are tuned). This finding is especially relevant because large models are costly to share and serve and the ability to reuse one frozen model for multiple downstream tasks can ease this burden. Our method can be seen as a simplification of the recently proposed {``}prefix tuning{''} of Li and Liang (2021) and we provide a comparison to this and other similar approaches. Finally, we show that conditioning a frozen model with soft prompts confers benefits in robustness to domain transfer and enables efficient {``}prompt ensembling.{''} We release code and model checkpoints to reproduce our experiments.",
+}
+@inproceedings{li-liang-2021-prefix,
+    title = "Prefix-Tuning: Optimizing Continuous Prompts for Generation",
+    author = "Li, Xiang Lisa  and
+      Liang, Percy",
+    booktitle = "Proceedings of the 59th Annual Meeting of the Association for Computational Linguistics and the 11th International Joint Conference on Natural Language Processing (Volume 1: Long Papers)",
+    month = aug,
+    year = "2021",
+    address = "Online",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2021.acl-long.353",
+    doi = "10.18653/v1/2021.acl-long.353",
+    pages = "4582--4597",
+    abstract = "Fine-tuning is the de facto way of leveraging large pretrained language models for downstream tasks. However, fine-tuning modifies all the language model parameters and therefore necessitates storing a full copy for each task. In this paper, we propose prefix-tuning, a lightweight alternative to fine-tuning for natural language generation tasks, which keeps language model parameters frozen and instead optimizes a sequence of continuous task-specific vectors, which we call the prefix. Prefix-tuning draws inspiration from prompting for language models, allowing subsequent tokens to attend to this prefix as if it were {``}virtual tokens{''}. We apply prefix-tuning to GPT-2 for table-to-text generation and to BART for summarization. We show that by learning only 0.1{\%} of the parameters, prefix-tuning obtains comparable performance in the full data setting, outperforms fine-tuning in low-data settings, and extrapolates better to examples with topics that are unseen during training.",
+}
+@inproceedings{mikolov2013linguistic,
+  title={Linguistic Regularities in Continuous Space Word Representations},
+  author={Mikolov, Tom{\'a}{\v{s}} and Yih, Wen-tau and Zweig, Geoffrey},
+  booktitle={Proceedings of the 2013 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies},
+  pages={746--751},
+  year={2013}
+}
+@inproceedings{10.5555/3045390.3045555,
+author = {Larsen, Anders Boesen Lindbo and S\o{}nderby, S\o{}ren Kaae and Larochelle, Hugo and Winther, Ole},
+title = {Autoencoding beyond Pixels Using a Learned Similarity Metric},
+year = {2016},
+publisher = {JMLR.org},
+abstract = {We present an autoencoder that leverages learned representations to better measure similarities in data space. By combining a variational autoencoder (VAE) with a generative adversarial network (GAN) we can use learned feature representations in the GAN discriminator as basis for the VAE reconstruction objective. Thereby, we replace element-wise errors with feature-wise errors to better capture the data distribution while offering invariance towards e.g. translation. We apply our method to images of faces and show that it outperforms VAEs with element-wise similarity measures in terms of visual fidelity. Moreover, we show that the method learns an embedding in which high-level abstract visual features (e.g. wearing glasses) can be modified using simple arithmetic.},
+booktitle = {Proceedings of the 33rd International Conference on International Conference on Machine Learning - Volume 48},
+pages = {1558–1566},
+numpages = {9},
+location = {},
+series = {ICML'16}
+}
+@inproceedings{DBLP:journals/corr/RadfordMC15,
+  author       = {Alec Radford and
+                  Luke Metz and
+                  Soumith Chintala},
+  editor       = {Yoshua Bengio and
+                  Yann LeCun},
+  title        = {Unsupervised Representation Learning with Deep Convolutional Generative
+                  Adversarial Networks},
+  booktitle    = {4th International Conference on Learning Representations, {ICLR} 2016,
+                  May 2-4, 2016, Conference Track Proceedings},
+  year         = {2016},
+  url          = {http://arxiv.org/abs/1511.06434},
+  timestamp    = {Thu, 25 Jul 2019 14:25:38 +0200},
+  biburl       = {https://dblp.org/rec/journals/corr/RadfordMC15.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+@INPROCEEDINGS{8100128,
+  author={Upchurch, Paul and Gardner, Jacob and Pleiss, Geoff and Pless, Robert and Snavely, Noah and Bala, Kavita and Weinberger, Kilian},
+  booktitle={2017 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)}, 
+  title={Deep Feature Interpolation for Image Content Changes}, 
+  year={2017},
+  volume={},
+  number={},
+  pages={6090-6099},
+  doi={10.1109/CVPR.2017.645}
+}
+@inproceedings{NIPS2015_e0741335,
+ author = {Reed, Scott E and Zhang, Yi and Zhang, Yuting and Lee, Honglak},
+ booktitle = {Advances in Neural Information Processing Systems},
+ editor = {C. Cortes and N. Lawrence and D. Lee and M. Sugiyama and R. Garnett},
+ pages = {},
+ publisher = {Curran Associates, Inc.},
+ title = {Deep Visual Analogy-Making},
+ url = {https://proceedings.neurips.cc/paper_files/paper/2015/file/e07413354875be01a996dc560274708e-Paper.pdf},
+ volume = {28},
+ year = {2015}
+}
+@inproceedings{NEURIPS2019_15f99f21,
+ author = {Wang, Yulin and Pan, Xuran and Song, Shiji and Zhang, Hong and Huang, Gao and Wu, Cheng},
+ booktitle = {Advances in Neural Information Processing Systems},
+ editor = {H. Wallach and H. Larochelle and A. Beygelzimer and F. d\textquotesingle Alch\'{e}-Buc and E. Fox and R. Garnett},
+ pages = {},
+ publisher = {Curran Associates, Inc.},
+ title = {Implicit Semantic Data Augmentation for Deep Networks},
+ url = {https://proceedings.neurips.cc/paper_files/paper/2019/file/15f99f2165aa8c86c9dface16fefd281-Paper.pdf},
+ volume = {32},
+ year = {2019}
+}
+@inproceedings{46f49a297c8542aa80d7fad85aed17e0,
+title = "Learning Fast Approximations of Sparse Coding",
+abstract = "In Sparse Coding (SC), input vectors are reconstructed using a sparse linear combination of basis vectors. SC has become a popular method for extracting features from data. For a given input, SC minimizes a quadratic reconstruction error with an L1 penalty term on the code. The process is often too slow for applications such as real-time pattern recognition. We proposed two versions of a very fast algorithm that produces approximate estimates of the sparse code that can be used to compute good visual features, or to initialize exact iterative algorithms. The main idea is to train a non-linear, feed-forward predictor with a specific architecture and a fixed depth to produce the best possible approximation of the sparse code. A version of the method, which can be seen as a trainable version of Li and Osher's coordinate descent method, is shown to produce approximate solutions with 10 times less computation than Li and Osher's for the same approximation error. Unlike previous proposals for sparse code predictors, the system allows a kind of approximate {"}explaining away{"} to take place during inference. The resulting predictor is differ- entiable and can be included into globally-trained recognition systems.",
+author = "Karol Gregor and Yann LeCun",
+year = "2010",
+language = "English (US)",
+isbn = "9781605589077",
+series = "ICML 2010 - Proceedings, 27th International Conference on Machine Learning",
+pages = "399--406",
+booktitle = "ICML 2010 - Proceedings, 27th International Conference on Machine Learning",
+note = "27th International Conference on Machine Learning, ICML 2010 ; Conference date: 21-06-2010 Through 25-06-2010",
+}
+@inproceedings{NIPS2013_9aa42b31,
+ author = {Mikolov, Tomas and Sutskever, Ilya and Chen, Kai and Corrado, Greg S and Dean, Jeff},
+ booktitle = {Advances in Neural Information Processing Systems},
+ editor = {C.J. Burges and L. Bottou and M. Welling and Z. Ghahramani and K.Q. Weinberger},
+ pages = {},
+ publisher = {Curran Associates, Inc.},
+ title = {Distributed Representations of Words and Phrases and their Compositionality},
+ url = {https://proceedings.neurips.cc/paper_files/paper/2013/file/9aa42b31882ec039965f3c4923ce901b-Paper.pdf},
+ volume = {26},
+ year = {2013}
+}
