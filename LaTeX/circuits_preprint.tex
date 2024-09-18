@@ -42,15 +42,14 @@
 \printAffiliationsAndNotice{}
 
 \begin{abstract}
-Sparse autoencoders provide a means of projecting model activations into a more interpretable vector space. With them, the field of mechanistic interpretability has taken to trying to understand the internals of large language models during training and during inference. In particular, sparse autoencoder dimensions can be naturally composed into circuits--causal directed graphs in which nodes are autoencoder dimensions and edges are causal effects. We looked at the algorithm for recovering these circuits in \citet{marks2024}.
+Sparse autoencoders provide a means of projecting model activations into a more interpretable sparse vector space. With them, the field of mechanistic interpretability has taken to trying to understand the internals of large language models during training and inference. In particular, sparse autoencoder dimensions can be naturally assembled into \textit{circuits} -- directed graphs in which nodes are autoencoder dimensions and edges are their causal effects on each other. We looked at an unsupervised algorithm for recovering these circuits in prior work. In reimplementing that algorithm, we isolated a significant bug, with consequences for prior results. Since, we have built out two independent implementations of the circuit discovery algorithm for GPT-2-small (up from Pythia-70m) and are now continuing to work on tuning the graphing hyperparameters involved in graphing upsupervised forward passes.
 \end{abstract}
 
-
 \section{Methods}
-
+We built upon prior work due to \citet{Marks2024}, specifically focusing on their unsupervised circuit discovery algorithm using attribution patching (rather than integrated gradients, excluding any initial pre-clustering of forward passes based on activation directions). [300-700 WORDS]
 
 \section{Results and Discussion}
-
+[200-500 WORDS]
 
 
 \section*{Contributions}
