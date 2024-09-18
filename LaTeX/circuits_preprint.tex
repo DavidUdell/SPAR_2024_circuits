@@ -46,18 +46,26 @@ Sparse autoencoders provide a means of projecting model activations into a more 
 \end{abstract}
 
 \section{Methods}
-We built upon prior work due to \citet{Marks2024}, specifically focusing on their unsupervised circuit discovery algorithm using attribution patching (rather than integrated gradients, excluding any initial pre-clustering of forward passes based on activation directions). [300-700 WORDS]
+We built upon prior work due to \citet{Marks2024}, specifically focusing on their unsupervised circuit discovery algorithm using attribution patching (rather than integrated gradients, excluding any pre-clustering of forward passes using activation directions).
 
-\section{Results and Discussion}
-[200-500 WORDS]
+Naively, if you want to capture all the causal dynamics relating sparse autoencoder dimensions across layers, you'd want to compare unaltered forward passes to forward passes in which an autoencoder dimension is clamped to some value. That clamped forward-pass difference gives you the counterfactual contribution of that autoencoder dimension; the cost is that you do need that additional forward pass. So, naively, your time complexity for assembling a full causal graph between autoencoder dimensions for one forward pass goes as $\mathcal{O}(d_\text{autoencoder})$.
+
+It's hard to get around this linear dependence on autoencoder width, when doing edge-level circuit discovery. Observe that while a \textit{node} in a causal graph is an element in an activation vector (either in the neuron basis or in the autoencoder basis), an \textit{edge} is an element in a \textit{Jacobian}. What you're doing when you're doing edge-level circuit discovery is fundamentally ``Jacobian shaped,'' so to speak.
+
+One improvement is to start backwards, from the loss, rather than forwards, from the embedding. This way, right from the beginning, you can be sure to only look at causal effects that ultimately contributed to the loss that forward pass. If you're only plotting some subset of causal effects using a top-k or threshold value, you can take that subset directly from effects on the loss. Beginning at the embedding requires you to ``speak the language'' of activation magnitude differences instead, which aren't so immediately connected to the loss value; large magnitude changes in early layers need not connect to the model output and loss. Working backward from the loss, that is, lets you threshold efficiently. This is the approach taken in \citet{Marks2024}.
+
+The other significant algorithmic complication in \citet{Marks2024} is their correction for double-counting the contributions of residual connections. The double-counting occurs because dimensions at the layer $N$ residual stream feed into both the layer $N+1$ attention sublayer \textit{and} the layer $N+1$ residual stream (in the GPT-2 architecture). Asking about the effects of dimensions at the layer $N$ residual stream on the layer $N+1$ residual stream -- the residual connection edge -- therefore end up counting the attention-to-MLP pathway too. You need to \textit{first} calculate the edge contributions in the attention-to-MLP pathway, and subtract that from the residual-stream-$N$-to-residual-stream-$N+1$ pathway, to get accurate residual connection contributions. Naively, these threaten to themselves take $\mathcal{O}(d_\text{autoencoder})$, dragging up overall time complexity to $\mathcal{O}({d_\text{autoencoder}}^2)$. These corrections can in fact be done in a constant number of backwards passes, however, preserving the original linear time complexity. This extra complication and efficiently solving it accounts for much of the complexity of the unsupervised circuit discovery algorithm.
+
+\section{Results and Ongoing Work}
+
 
 
 \section*{Contributions}
 \begin{itemize}
-\item David Udell:
-\item Jackson Kaunismaa:
-\item Hardik Bhatnagar:
-\item Himadri Mandal:
+\item David Udell: Team lead; \href{https://github.com/DavidUdell/sparse_circuit_discovery}{reimplementing the circuit discovery algorithm;} \LaTeX
+\item Jackson Kaunismaa: Isolating and examining a serious bug in the \citet{Marks2024} \href{https://github.com/saprmarks/feature-circuits}{codebase}; reworking that codebase \href{https://github.com/JacksonKaunismaa/feature-circuits/tree/jvp-fix}{in a fork for GPT-2.}
+\item Hardik Bhatnagar: Implementing the alternative integrated gradients circuit-discovery algorithm.
+\item Himadri Mandal: Work looking over the algorithmic details of \citet{Marks2024}.
 \end{itemize}
 
 \bibliographystyle{icml2022}
