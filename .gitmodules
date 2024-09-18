@@ -1,0 +1,3 @@
+[submodule "src/sparse_circuit_discovery"]
+	path = src/sparse_circuit_discovery
+	url = https://github.com/DavidUdell/sparse_circuit_discovery
